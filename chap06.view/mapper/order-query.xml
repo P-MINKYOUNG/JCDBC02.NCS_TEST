@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="selectAllCategory">
+       SELECT
+              CATEGORY_CODE
+            , CATEGORY_NAME
+            , REF_CATEGORY_CODE
+         FROM TBL_CATEGORY
+</entry>
+
+<entry key="selectMenuByCategoryCode">
+		SELECT
+		       MENU_CODE
+		     , MENU_NAME
+		     , MENU_PRICE
+		     , CATEGORY_CODE
+		     , ORDERABLE_STATUS
+		  FROM TBL_MENU
+		 WHERE ORDERABLE_STATUS = 'Y'
+		   AND CATEGORY_CODE = ?
+		       
+</entry>
+
+</properties>
