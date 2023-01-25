@@ -1,8 +1,12 @@
 package ncs.test10;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
@@ -15,82 +19,43 @@ public class BookListTest {
 		ArrayList<Book> list = new ArrayList<Book>();
 
 		test10.storeList(list);
-		test10.saveFile(list);
-		List<Book> booksList = test10.loadFile();
-		test10.printList(booksList);
-
+//		test10.saveFile(list);
+//		List<Book> booksList = test10.loadFile();
+//		test10.printList(booksList);
 
 	}
 
 	public void storeList(List<Book> list) {
 
-		Book book1 = new Book("자바의 정석", "남궁성", 30000, "도우출판", 0.15);
-		Book book2 = new Book("열혈강의 자바", "구정은", 29000, "프리렉", 0.2);
-		Book book3 = new Book("객체지향 자바", "금영욱", 30000, "북스홈", 0.1);
+		list.add(new Book("자바의 정석", "남궁성", 30000, "도우출판", 0.15));
+		list.add(new Book("열혈강의 자바", "구정은", 29000, "프리렉", 0.2));
+		list.add(new Book("객체지향 자바", "금영욱", 30000, "북스홈", 0.1));
 
-		list.add(book1);
-		list.add(book2);
-		list.add(book3);
 	}
 
 	public void saveFile(List<Book> list) {
 		
 		Properties prop = new Properties();
 		
-		for(int i = 0 ; i < list.size() ; i++) {
-			for(Book book : list) {
-			prop.setProperty("title" + i, book.getTitle());
-			prop.setProperty("author" + i, book.getAuthor());
-			prop.setProperty("price" + i,Integer.toString(book.getPrice()));
-			prop.setProperty("publisher" + i, book.getPublisher());
-			prop.setProperty("discountRate" + i, Double.toString(book.getDiscountRate()));
-			
-			i++;
-
-			}
-		}
+		list.iterator();
 		
-		try {
-			prop.store(new FileOutputStream("src/ncs/test10/books.dat"), "books.dat");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		
+
+		
 	}
 
 	public List<Book> loadFile() {
-		
 		List<Book> bookList = null;
-		Book book = null;
-		Properties prop = new Properties();
-		
-		bookList = new ArrayList<>();
-		
-		try {
-			prop.load(new FileInputStream("src/ncs/test10/books.dat"));
-			
-			for(int i = 0 ; i < bookList.size() ; i++) {
-				book = new Book();
-				
-				book.setTitle(prop.getProperty("title" + i));
-				book.setAuthor(prop.getProperty("author" + i));
-				book.setPrice(Integer.parseInt(prop.getProperty("price" +i)));
-				book.setPublisher(prop.getProperty("publisher" + i));
-				book.setDiscountRate(Double.parseDouble(prop.getProperty("discountRate" + i)));
-				
-				bookList.add(book);
-			}
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
 		
 		return bookList;
 	}
 
 	public void printList(List<Book> list) {
-		
-		System.out.println(list.toString());
+
+		for(Book book : list) {
+			System.out.println(list.toString());
+			System.out.println("할인 된 가격 : " + (book.getPrice() - book.getPrice()*book.getDiscountRate()));
+		}
 
 	}
 
