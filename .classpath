@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="chap01.connection/src"/>
+	<classpathentry kind="src" path="chap02.statement/src"/>
+	<classpathentry kind="src" path="chap03.crud/src"/>
+	<classpathentry kind="src" path="chap04.dao/src"/>
+	<classpathentry kind="src" path="chap05.service/src"/>
+	<classpathentry kind="src" path="chap06.view/src"/>
+	<classpathentry kind="src" path="javaTest3_박민경/src"/>
+	<classpathentry kind="lib" path="chap01.connection/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap02.statement/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap03.crud/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap04.dao/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap05.service/config/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap05.service/lib/ojdbc8.jar"/>
+	<classpathentry kind="lib" path="chap06.view/lib/ojdbc8.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

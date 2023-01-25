@@ -17,6 +17,7 @@ public class BookListTest {
 		test10.storeList(list);
 		test10.saveFile(list);
 		List<Book> booksList = test10.loadFile();
+		test10.printList(booksList);
 
 
 	}
@@ -38,11 +39,11 @@ public class BookListTest {
 		
 		for(int i = 0 ; i < list.size() ; i++) {
 			for(Book book : list) {
-			prop.setProperty("title" + Integer.toString(i), book.getTitle());
-			prop.setProperty("author" + Integer.toString(i), book.getAuthor());
-			prop.setProperty("price" + Integer.toString(i),Integer.toString(book.getPrice()));
-			prop.setProperty("publisher" + Integer.toString(i), book.getPublisher());
-			prop.setProperty("discountRate" + Integer.toString(i), Double.toString(book.getDiscountRate()));
+			prop.setProperty("title" + i, book.getTitle());
+			prop.setProperty("author" + i, book.getAuthor());
+			prop.setProperty("price" + i,Integer.toString(book.getPrice()));
+			prop.setProperty("publisher" + i, book.getPublisher());
+			prop.setProperty("discountRate" + i, Double.toString(book.getDiscountRate()));
 			
 			i++;
 
@@ -70,11 +71,11 @@ public class BookListTest {
 			for(int i = 0 ; i < bookList.size() ; i++) {
 				book = new Book();
 				
-				book.setTitle(prop.getProperty("title" + Integer.toString(i)));
-				book.setAuthor(prop.getProperty("author") + Integer.toString(i));
-				book.setPrice(Integer.parseInt(prop.getProperty("price") + Integer.toString(i)));
-				book.setPublisher(prop.getProperty("publisher") + Integer.toString(i));
-				book.setDiscountRate(Double.parseDouble(prop.getProperty("discountRate") + Integer.toString(i)));
+				book.setTitle(prop.getProperty("title" + i));
+				book.setAuthor(prop.getProperty("author" + i));
+				book.setPrice(Integer.parseInt(prop.getProperty("price" +i)));
+				book.setPublisher(prop.getProperty("publisher" + i));
+				book.setDiscountRate(Double.parseDouble(prop.getProperty("discountRate" + i)));
 				
 				bookList.add(book);
 			}
@@ -89,7 +90,7 @@ public class BookListTest {
 
 	public void printList(List<Book> list) {
 		
-		
+		System.out.println(list.toString());
 
 	}
 
